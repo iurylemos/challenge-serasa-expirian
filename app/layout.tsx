@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Open_Sans } from "next/font/google";
-import { JSX } from "react/jsx-runtime";
+import type { JSX } from "react";
 import "./globals.css";
 
 const openSans = Open_Sans({
