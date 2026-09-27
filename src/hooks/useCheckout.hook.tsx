@@ -18,13 +18,14 @@ export const useCheckout: IUseCheckout = create<CheckoutStore>()(
   devtools(
     (set) => ({
       ...initialState,
-      selectOffer: (offerId: string): void =>
+      selectOffer: (offerId: string): void => {
         set(
           { selectedOfferId: offerId, step: CheckoutStep.PAYMENT },
           false,
           "checkout/selectOffer",
-        ),
-      selectPaymentMethod: (paymentMethodId: string): void =>
+        );
+      },
+      selectPaymentMethod: (paymentMethodId: string): void => {
         set(
           {
             selectedPaymentMethodId: paymentMethodId,
@@ -32,11 +33,15 @@ export const useCheckout: IUseCheckout = create<CheckoutStore>()(
           },
           false,
           "checkout/selectPaymentMethod",
-        ),
-      goToStep: (step: CheckoutStep): void =>
-        set({ step }, false, "checkout/goToStep"),
-      reset: (): void => set(initialState, false, "checkout/reset"),
+        );
+      },
+      goToStep: (step: CheckoutStep): void => {
+        set({ step }, false, "checkout/goToStep");
+      },
+      reset: (): void => {
+        set(initialState, false, "checkout/reset");
+      },
     }),
-    { name: "checkout-store" },
+    { name: "checkout" },
   ),
 );

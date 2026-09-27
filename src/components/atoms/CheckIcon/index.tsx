@@ -1,6 +1,6 @@
 import type { JSX } from "react";
 
-export default function ChevronRightIcon(): JSX.Element {
+export default function CheckIcon(): JSX.Element {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -8,13 +8,13 @@ export default function ChevronRightIcon(): JSX.Element {
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className="size-4 font-bold mt-0.5"
+      className="size-4 text-green-500"
       aria-hidden="true"
     >
       <path
         strokeLinecap="round"
         strokeLinejoin="round"
-        d="m8.25 4.5 7.5 7.5-7.5 7.5"
+        d="m4.5 12.75 6 6 9-13.5"
       />
     </svg>
   );

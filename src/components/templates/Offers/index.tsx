@@ -7,8 +7,8 @@ import { Tags } from "@/src/interfaces/tags.enum";
 import { useCheckout } from "@/src/hooks/useCheckout.hook";
 import OfferList from "@/src/components/organisms/OfferList";
 import Header from "@/src/components/organisms/Header";
-import StepTabs from "../../molecules/StepTabs";
-import Heading from "../../atoms/Heading";
+import StepTabs from "@/src/components/molecules/StepTabs";
+import Heading from "@/src/components/atoms/Heading";
 
 const CURRENT_USER = {
   name: "Maria",

@@ -11,8 +11,8 @@ export default function Heading({
 }: Readonly<HeadingProps>): JSX.Element {
   return (
     <div className="my-8">
-      <h1 className="text-xl font-bold text-gray-900">{title}</h1>
-      <p className="text-sm text-gray-500">{subtitle}</p>
+      <h1 className="text-2xl font-bold text-gray-900">{title}</h1>
+      <p className="text-base text-gray-500">{subtitle}</p>
     </div>
   );
 }
