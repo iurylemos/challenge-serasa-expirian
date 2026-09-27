@@ -9,7 +9,9 @@ type MSWContextProps = {
 
 let isMSWStarted = false;
 
-export default function MSWContext({ children }: MSWContextProps): JSX.Element {
+export default function MSWContext({
+  children,
+}: Readonly<MSWContextProps>): JSX.Element {
   const [ready, setReady] = useState<boolean>(false);
 
   useEffect(() => {

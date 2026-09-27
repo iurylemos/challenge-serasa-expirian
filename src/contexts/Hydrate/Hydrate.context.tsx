@@ -16,7 +16,7 @@ type HydrateContextProps = {
 export default function HydrateContext({
   state,
   children,
-}: HydrateContextProps): JSX.Element {
+}: Readonly<HydrateContextProps>): JSX.Element {
   const queryClient = getQueryClient();
 
   return (

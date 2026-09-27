@@ -26,17 +26,19 @@ describe("Offers", () => {
   it("should display the offers returned by the API", async () => {
     renderOffers();
 
-    expect(await screen.findByText("Plano Básico")).toBeInTheDocument();
+    expect(await screen.findByText("Banco Horizonte")).toBeInTheDocument();
 
-    expect(screen.getByText("Plano Profissional")).toBeInTheDocument();
+    expect(screen.getByText("Conecta Telecom")).toBeInTheDocument();
 
-    expect(screen.getByText("Plano Empresarial")).toBeInTheDocument();
+    expect(screen.getByText("Loja Vitrine")).toBeInTheDocument();
   });
 
   it("should display the loading state", () => {
     renderOffers();
 
-    expect(screen.getByText("Loading...")).toBeInTheDocument();
+    expect(screen.getByRole("status")).toHaveTextContent(
+      "Carregando ofertas...",
+    );
   });
 
   it("should display an error message when the API fails", async () => {
@@ -50,6 +52,8 @@ describe("Offers", () => {
 
     renderOffers();
 
-    expect(await screen.findByText("Error...")).toBeInTheDocument();
+    expect(await screen.findByRole("alert")).toHaveTextContent(
+      "Não foi possível carregar as ofertas.",
+    );
   });
 });
