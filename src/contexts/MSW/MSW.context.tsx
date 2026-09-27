@@ -1,16 +1,15 @@
 "use client";
 
 import { type JSX, type ReactNode, useEffect, useState } from "react";
+import { getWorker } from "@/src/mocks/browser";
 
-type MSWProviderProps = {
+type MSWContextProps = {
   children: ReactNode;
 };
 
-let mswStartPromise: Promise<void> | null = null;
+let isMSWStarted = false;
 
-export default function MSWProvider({
-  children,
-}: MSWProviderProps): JSX.Element {
+export default function MSWContext({ children }: MSWContextProps): JSX.Element {
   const [ready, setReady] = useState<boolean>(false);
 
   useEffect(() => {
@@ -20,22 +19,24 @@ export default function MSWProvider({
         return;
       }
 
-      if (!mswStartPromise) {
-        mswStartPromise = import("@/src/mocks/browser").then(
-          async ({ worker }) => {
-            await worker.start({
-              onUnhandledRequest: "bypass",
-            });
-          },
-        );
+      if (isMSWStarted) {
+        setReady(true);
+        return;
       }
 
-      await mswStartPromise;
+      const worker = getWorker();
 
+      await worker.start({
+        onUnhandledRequest: "bypass",
+      });
+
+      isMSWStarted = true;
       setReady(true);
     }
 
-    enableMocking().catch(console.error);
+    enableMocking().catch((error) => {
+      console.error("MSW failed to start:", error);
+    });
   }, []);
 
   if (!ready) {
