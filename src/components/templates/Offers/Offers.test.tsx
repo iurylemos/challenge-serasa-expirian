@@ -31,7 +31,6 @@ async function renderAndSelectFirstOffer() {
 
   renderOffers();
 
-  // A primeira oferta do mock é a do Banco Horizonte
   const [firstContinueButton] = await screen.findAllByRole("button", {
     name: "Continuar",
   });
