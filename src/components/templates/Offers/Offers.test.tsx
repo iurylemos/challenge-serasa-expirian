@@ -4,7 +4,7 @@ import userEvent from "@testing-library/user-event";
 import { HttpResponse, delay, http } from "msw";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
-import Offers from "./index";
+import Offers from ".";
 import { server } from "@/src/mocks/server";
 import { useCheckout } from "@/src/hooks/useCheckout.hook";
 import { OffersConstants } from "@/src/components/templates/Offers/Offers.constants";
