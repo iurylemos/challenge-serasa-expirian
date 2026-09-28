@@ -1,11 +1,14 @@
 "use client";
 
-import { useMemo, type JSX } from "react";
+import { useMemo, useState, type JSX } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { OfferService } from "@/src/services/offer/offer.service";
 import { Tags } from "@/src/interfaces/tags.enum";
 import { useCheckout } from "@/src/hooks/useCheckout.hook";
-import { OffersConstants } from "@/src/components/templates/Offers/Offers.constants";
+import {
+  AGREEMENT_TERMS,
+  OffersConstants,
+} from "@/src/components/templates/Offers/Offers.constants";
 import { CheckoutStep } from "@/src/interfaces/checkout.interface";
 import { StepLabel } from "@/src/interfaces/step.enum";
 import { PaymentMethodService } from "@/src/services/paymentMethod/paymentMethod.service";
@@ -13,6 +16,8 @@ import OfferList from "@/src/components/organisms/OfferList";
 import PaymentMethodList from "@/src/components/organisms/PaymentMethodList";
 import SelectedOfferSummary from "@/src/components/organisms/SelectedOfferSummary";
 import AgreementSummary from "@/src/components/organisms/AgreementSummary";
+import AgreementReview from "@/src/components/organisms/AgreementReview";
+import AgreementTerms from "@/src/components/organisms/AgreementTerms";
 import Header from "@/src/components/organisms/Header";
 import StepTabs from "@/src/components/molecules/StepTabs";
 import Heading from "@/src/components/atoms/Heading";
@@ -31,6 +36,8 @@ export default function Offers(): JSX.Element {
     selectPaymentMethod,
     goToStep,
   } = useCheckout();
+
+  const [isTermsAccepted, setIsTermsAccepted] = useState<boolean>(false);
 
   const {
     data: offers,
@@ -52,6 +59,9 @@ export default function Offers(): JSX.Element {
   });
 
   const selectedOffer = offers?.find((offer) => offer.id === selectedOfferId);
+  const selectedPaymentMethod = paymentMethods?.find(
+    (paymentMethod) => paymentMethod.id === selectedPaymentMethodId,
+  );
 
   const memoLabelHeading = useMemo<LabelHeading>(() => {
     switch (step) {
@@ -77,6 +87,19 @@ export default function Offers(): JSX.Element {
   }, [step]);
 
   const handleBackToOffers = (): void => goToStep(CheckoutStep.OFFERS);
+
+  const handleBackToPayment = (): void => {
+    setIsTermsAccepted(false);
+    goToStep(CheckoutStep.PAYMENT);
+  };
+
+  const handleReadFullTerms = (): void => {
+    // TODO: abrir modal/página com os termos completos
+  };
+
+  const handleConfirmAgreement = (): void => {
+    // TODO: disparar a mutation de confirmação do acordo
+  };
 
   return (
     <section
@@ -136,11 +159,53 @@ export default function Offers(): JSX.Element {
                   canContinue={selectedPaymentMethodId !== null}
                   onContinue={() => goToStep(CheckoutStep.REVIEW)}
                   onBack={handleBackToOffers}
+                  continueLabel="Ir para revisão"
                 />
               </aside>
             )}
           </div>
         )}
+
+        {step === CheckoutStep.REVIEW &&
+          selectedOffer &&
+          selectedPaymentMethod && (
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-[minmax(0,1fr)_20rem]">
+              <div className="space-y-6">
+                <AgreementReview
+                  companyInitials={selectedOffer.companyInitials}
+                  companyName={selectedOffer.companyName}
+                  subtitle={selectedOffer.subtitle}
+                  originalPrice={selectedOffer.originalPrice}
+                  finalPrice={selectedOffer.finalPrice}
+                  discountPercentage={selectedOffer.discountPercentage}
+                  condition={selectedOffer.paymentDescription}
+                  paymentMethodTitle={selectedPaymentMethod.title}
+                  dueDate={selectedPaymentMethod.dueDate}
+                />
+
+                <AgreementTerms
+                  terms={AGREEMENT_TERMS}
+                  isAccepted={isTermsAccepted}
+                  onAcceptedChange={setIsTermsAccepted}
+                  onReadFullTerms={handleReadFullTerms}
+                />
+              </div>
+
+              <aside
+                aria-label={OffersConstants.RESUME_AGREEMENT}
+                className="self-start"
+              >
+                <AgreementSummary
+                  totalValue={selectedOffer.finalPrice}
+                  canContinue={isTermsAccepted}
+                  continueLabel="Confirmar acordo"
+                  note={selectedPaymentMethod.note}
+                  onContinue={handleConfirmAgreement}
+                  onBack={handleBackToPayment}
+                />
+              </aside>
+            </div>
+          )}
       </div>
     </section>
   );

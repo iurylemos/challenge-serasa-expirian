@@ -58,7 +58,7 @@ export default function SelectedOfferSummary({
           label={SelectedOfferSummaryConstants.CHANGE_OFFER_LABEL}
           chevronEnabled
           onClick={onChangeOffer}
-          className="mt-4 cursor-pointer text-blue-600"
+          className="mt-4 text-blue-600"
         />
       </div>
     </div>

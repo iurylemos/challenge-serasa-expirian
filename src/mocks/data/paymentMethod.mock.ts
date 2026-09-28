@@ -11,12 +11,16 @@ export const paymentMethodMock: PaymentMethod[] = [
     title: "Pix",
     description: "Pagamento na hora, sem sair de casa",
     badge: "Mais rápido",
+    dueDate: "30/09",
+    note: "Após confirmar, geramos o boleto com vencimento em 30/09.",
   },
   {
     id: "boleto",
     type: PaymentMethodType.BILLET,
     title: "Boleto",
     description: "Pague no app do banco ou em lotéricas",
+    dueDate: "30/09",
+    note: "Após confirmar, geramos o boleto com vencimento em 30/09.",
     details: [
       {
         id: "due-date",

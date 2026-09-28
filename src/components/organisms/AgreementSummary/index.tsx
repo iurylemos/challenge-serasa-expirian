@@ -1,12 +1,15 @@
 import type { JSX } from "react";
-import { AgreementSummaryConstants } from "@/src/components/organisms/AgreementSummary/AgreementSummary.constants";
 import { CurrencyUtil } from "@/src/utils/currency.util";
+import { AgreementSummaryConstants } from "@/src/components/organisms/AgreementSummary/AgreementSummary.constants";
+import InfoIcon from "@/src/components/atoms/InfoIcon";
 import ChevronButton from "@/src/components/atoms/ChevronButton";
 import TextButton from "@/src/components/atoms/TextButton";
 
 type AgreementSummaryProps = {
   totalValue: number;
   canContinue: boolean;
+  continueLabel: string;
+  note?: string;
   onContinue: () => void;
   onBack: () => void;
 };
@@ -14,6 +17,8 @@ type AgreementSummaryProps = {
 export default function AgreementSummary({
   totalValue,
   canContinue,
+  continueLabel,
+  note,
   onContinue,
   onBack,
 }: Readonly<AgreementSummaryProps>): JSX.Element {
@@ -29,7 +34,7 @@ export default function AgreementSummary({
       </dl>
 
       <ChevronButton
-        label={AgreementSummaryConstants.GO_REVIEW}
+        label={continueLabel}
         disabled={!canContinue}
         onClick={onContinue}
       />
@@ -38,8 +43,15 @@ export default function AgreementSummary({
         label={AgreementSummaryConstants.BACK_LABEL}
         chevronEnabled={false}
         onClick={onBack}
-        className="w-full justify-center cursor-pointer"
+        className="w-full justify-center"
       />
+
+      {note && (
+        <p className="flex items-start justify-start gap-2 text-xs text-gray-500">
+          <InfoIcon />
+          {note}
+        </p>
+      )}
     </div>
   );
 }

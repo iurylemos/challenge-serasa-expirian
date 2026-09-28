@@ -19,7 +19,7 @@ export default function TextButton({
   return (
     <button
       type="button"
-      className={`inline-flex items-center gap-1 text-sm font-semibold hover:underline ${className}`}
+      className={`inline-flex items-center gap-1 text-sm font-semibold cursor-pointer hover:underline ${className}`}
       onClick={onClick}
     >
       {label}

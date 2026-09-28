@@ -9,7 +9,7 @@ export const mockOffers: Offer[] = [
     originalPrice: 3480.9,
     finalPrice: 689.0,
     discountPercentage: 80,
-    paymentDescription: "á vista",
+    paymentDescription: "Á vista · pagamento único",
     isBestOffer: true,
   },
   {
@@ -20,7 +20,7 @@ export const mockOffers: Offer[] = [
     originalPrice: 412.97,
     finalPrice: 98.9,
     discountPercentage: 76,
-    paymentDescription: "á vista",
+    paymentDescription: "Á vista · pagamento único",
     isBestOffer: false,
   },
   {

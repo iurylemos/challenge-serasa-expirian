@@ -22,4 +22,6 @@ export interface PaymentMethod {
   description: string;
   badge?: string;
   details?: PaymentMethodDetail[];
+  dueDate: string;
+  note: string;
 }
