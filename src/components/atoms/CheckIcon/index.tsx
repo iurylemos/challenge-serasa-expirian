@@ -1,7 +1,7 @@
 import type { JSX } from "react";
 import { MagicNumber } from "@/src/interfaces/magicNumber.enum";
 
-export default function CalendarIcon(): JSX.Element {
+export default function CheckIcon(): JSX.Element {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -9,13 +9,13 @@ export default function CalendarIcon(): JSX.Element {
       viewBox="0 0 24 24"
       strokeWidth={MagicNumber.ONE_FIVE}
       stroke="currentColor"
-      className="size-6"
+      className="size-4 text-green-500"
       aria-hidden="true"
     >
       <path
         strokeLinecap="round"
         strokeLinejoin="round"
-        d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5"
+        d="m4.5 12.75 6 6 9-13.5"
       />
     </svg>
   );

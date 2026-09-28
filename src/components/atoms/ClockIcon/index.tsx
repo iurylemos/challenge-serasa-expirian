@@ -1,21 +1,19 @@
 import type { JSX } from "react";
-import { MagicNumber } from "@/src/interfaces/magicNumber.enum";
 
-export default function ChevronRightIcon(): JSX.Element {
+export default function ClockIcon(): JSX.Element {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 24 24"
-      strokeWidth={MagicNumber.ONE_FIVE}
+      strokeWidth={1.5}
       stroke="currentColor"
-      className="size-4 font-bold mt-0.5"
-      aria-hidden="true"
+      className="size-6"
     >
       <path
         strokeLinecap="round"
         strokeLinejoin="round"
-        d="m8.25 4.5 7.5 7.5-7.5 7.5"
+        d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
       />
     </svg>
   );
