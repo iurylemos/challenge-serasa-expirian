@@ -8,7 +8,7 @@ export default function TrophyIcon(): JSX.Element {
       fill="none"
       viewBox="0 0 24 24"
       strokeWidth={MagicNumber.ONE_FIVE}
-      stroke="white"
+      stroke="currentColor"
       className="size-4"
     >
       <path

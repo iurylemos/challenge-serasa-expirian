@@ -27,10 +27,7 @@ export const useCheckout: IUseCheckout = create<CheckoutStore>()(
       },
       selectPaymentMethod: (paymentMethodId: string): void => {
         set(
-          {
-            selectedPaymentMethodId: paymentMethodId,
-            step: CheckoutStep.REVIEW,
-          },
+          { selectedPaymentMethodId: paymentMethodId },
           false,
           "checkout/selectPaymentMethod",
         );
