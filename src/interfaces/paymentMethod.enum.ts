@@ -6,6 +6,7 @@ export enum PaymentMethodType {
 
 export enum PaymentMethodDetailIcon {
   CALENDAR = "calendar",
+  QR_CODE = "qrCode",
   CLOCK = "clock",
 }
 

@@ -105,6 +105,8 @@ export default function PaymentMethodCard({
               <li key={detail.id} className="flex items-center gap-2">
                 {detail.icon === PaymentMethodDetailIcon.CALENDAR ? (
                   <CalendarIcon />
+                ) : detail.icon === PaymentMethodDetailIcon.QR_CODE ? (
+                  <QrCodeIcon />
                 ) : (
                   <ClockIcon />
                 )}

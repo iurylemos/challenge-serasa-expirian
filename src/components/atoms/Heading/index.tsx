@@ -1,9 +1,5 @@
 import type { JSX } from "react";
-
-type HeadingProps = {
-  title: string;
-  subtitle: string;
-};
+import type { HeadingProps } from "@/src/interfaces/heading.interface";
 
 export default function Heading({
   title,

@@ -13,6 +13,18 @@ export const paymentMethodMock: PaymentMethod[] = [
     badge: "Mais rápido",
     dueDate: "30/09",
     note: "Após confirmar, geramos o boleto com vencimento em 30/09.",
+    details: [
+      {
+        id: "qr-code",
+        icon: PaymentMethodDetailIcon.QR_CODE,
+        text: "Depois de confirmar o acordo, geramos o QR Code e o código Pix cópia e cola",
+      },
+      {
+        id: "compensation",
+        icon: PaymentMethodDetailIcon.CLOCK,
+        text: "O pagamento é compensado em poucos minutos",
+      },
+    ],
   },
   {
     id: "boleto",
