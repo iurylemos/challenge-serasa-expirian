@@ -7,15 +7,15 @@ type PaymentMethodListProps = {
   paymentMethods: PaymentMethod[];
   isPending: boolean;
   isError: boolean;
-  selectedPaymentMethodId: string | null;
-  onSelectPaymentMethod: (paymentMethodId: string) => void;
+  selectedPaymentMethod: PaymentMethod;
+  onSelectPaymentMethod: (paymentMethod: PaymentMethod) => void;
 };
 
 export default function PaymentMethodList({
   paymentMethods,
   isPending,
   isError,
-  selectedPaymentMethodId,
+  selectedPaymentMethod,
   onSelectPaymentMethod,
 }: Readonly<PaymentMethodListProps>): JSX.Element {
   if (isPending) {
@@ -39,8 +39,8 @@ export default function PaymentMethodList({
           key={paymentMethod.id}
           {...paymentMethod}
           groupName={PaymentMethodListConstants.GROUP_NAME}
-          isSelected={paymentMethod.id === selectedPaymentMethodId}
-          onSelect={() => onSelectPaymentMethod(paymentMethod.id)}
+          isSelected={paymentMethod.id === selectedPaymentMethod.id}
+          onSelect={() => onSelectPaymentMethod(paymentMethod)}
         />
       ))}
     </fieldset>

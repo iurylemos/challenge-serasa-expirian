@@ -6,15 +6,15 @@ type OfferListProps = {
   offers: Offer[];
   isPending: boolean;
   isError: boolean;
-  selectedOfferId: string | null;
-  onSelectOffer: (offerId: string) => void;
+  selectedOffer: Offer;
+  onSelectOffer: (offer: Offer) => void;
 };
 
 export default function OfferList({
   offers,
   isPending,
   isError,
-  selectedOfferId,
+  selectedOffer,
   onSelectOffer,
 }: Readonly<OfferListProps>): JSX.Element {
   if (isPending) {
@@ -37,9 +37,9 @@ export default function OfferList({
       {offers.map((offer) => (
         <li
           key={offer.id}
-          aria-current={offer.id === selectedOfferId ? "true" : undefined}
+          aria-current={offer.id === selectedOffer.id ? "true" : undefined}
         >
-          <OfferCard {...offer} onContinue={() => onSelectOffer(offer.id)} />
+          <OfferCard {...offer} onContinue={() => onSelectOffer(offer)} />
         </li>
       ))}
     </ul>

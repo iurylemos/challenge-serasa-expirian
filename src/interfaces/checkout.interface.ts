@@ -1,3 +1,6 @@
+import { Offer } from "@/src/interfaces/offer.interface";
+import { PaymentMethod } from "@/src/interfaces/paymentMethod.enum";
+
 export enum CheckoutStep {
   OFFERS = "OFFERS",
   PAYMENT = "PAYMENT",
@@ -6,13 +9,13 @@ export enum CheckoutStep {
 
 export interface CheckoutState {
   step: CheckoutStep;
-  selectedOfferId: string | null;
-  selectedPaymentMethodId: string | null;
+  selectedOffer: Offer;
+  selectedPaymentMethod: PaymentMethod;
 }
 
 export interface CheckoutActions {
-  selectOffer: (offerId: string) => void;
-  selectPaymentMethod: (paymentMethodId: string) => void;
+  selectOffer: (offer: Offer) => void;
+  selectPaymentMethod: (paymentMethod: PaymentMethod) => void;
   goToStep: (step: CheckoutStep) => void;
   reset: () => void;
 }
