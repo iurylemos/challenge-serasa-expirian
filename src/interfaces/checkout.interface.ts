@@ -1,4 +1,4 @@
-import { Offer } from "@/src/interfaces/offer.interface";
+import type { Offer } from "@/src/interfaces/offer.interface";
 import { PaymentMethod } from "@/src/interfaces/paymentMethod.enum";
 
 export enum CheckoutStep {
