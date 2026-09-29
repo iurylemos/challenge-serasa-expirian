@@ -75,6 +75,10 @@ O layout foi construído para funcionar de forma confortável tanto em telas mob
 - Feedback de erro acessível (`aria-live`)
 - Foco visível em elementos focáveis
 
+## Video de como funciona
+
+<video src="./assets/ChallengeSerasaExpirian.mp4" controls width="600"></video>
+
 ## 👤 Autor
 
 **Iury Lemos**

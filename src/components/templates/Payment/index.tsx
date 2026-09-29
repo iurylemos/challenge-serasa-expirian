@@ -44,7 +44,7 @@ export default function PaymentTemplate({
         onSelectPaymentMethod={selectPaymentMethod}
       />
 
-      {selectedOffer && (
+      {selectedOffer.id && (
         <aside
           aria-label={PaymentConstants.RESUME_AGREEMENT}
           className="space-y-4"
