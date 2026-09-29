@@ -18,3 +18,8 @@ export enum VariantSize {
   SM = "sm",
   MD = "md",
 }
+
+export enum SnackbarVariant {
+  SUCCESS = "success",
+  ERROR = "error",
+}

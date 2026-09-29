@@ -21,4 +21,18 @@ export const offerHandlers: HttpHandler[] = [
       return HttpResponse.json(paymentMethodMock);
     },
   ),
+  http.post(
+    "/api/agreement/confirm",
+    async (): Promise<HttpResponse<JsonBodyType>> => {
+      await new Promise((resolve) =>
+        setTimeout(resolve, MagicNumber.EIGHT_HUNDRED),
+      );
+
+      if (Math.random() < MagicNumber.ZERO_THREE) {
+        return new HttpResponse(null, { status: MagicNumber.FIVE_HUNDRED });
+      }
+
+      return HttpResponse.json({ success: true });
+    },
+  ),
 ];

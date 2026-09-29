@@ -77,7 +77,7 @@ O layout foi construído para funcionar de forma confortável tanto em telas mob
 
 ## Video de como funciona
 
-<video src="https://github.com/user-attachments/assets/abd13e43-5a8f-418c-8c85-215dc9a5411f" controls width="600"></video>
+<video src="https://github.com/user-attachments/assets/54d903be-10c3-469b-9458-57f48395ce08" controls width="600"></video>
 
 ## 👤 Autor
 

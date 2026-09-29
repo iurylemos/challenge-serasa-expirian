@@ -3,6 +3,7 @@ import { dehydrate, noop } from "@tanstack/react-query";
 import { getQueryClient } from "@/src/libs/tanstack/tanstack.lib";
 import { OfferService } from "@/src/services/offer/offer.service";
 import { Tags } from "@/src/interfaces/tags.enum";
+import { SnackbarProvider } from "@/src/contexts/Snackbar/Snackbar.context";
 import OffersTemplate from "@/src/components/templates/Offers";
 import MSWContext from "@/src/contexts/MSW/MSW.context";
 import HydrateContext from "@/src/contexts/Hydrate/Hydrate.context";
@@ -20,7 +21,9 @@ export default async function Home(): Promise<JSX.Element> {
   return (
     <MSWContext>
       <HydrateContext state={dehydrate(queryClient)}>
-        <OffersTemplate />
+        <SnackbarProvider>
+          <OffersTemplate />
+        </SnackbarProvider>
       </HydrateContext>
     </MSWContext>
   );
