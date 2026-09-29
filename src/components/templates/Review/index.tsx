@@ -17,6 +17,7 @@ type ReviewTemplateProps = {
   handleConfirmAgreement: () => void;
   handleBackToPayment: () => void;
   setIsTermsAccepted: (isAccepted: boolean) => void;
+  isConfirming: boolean;
 };
 
 export default function ReviewTemplate({
@@ -27,6 +28,7 @@ export default function ReviewTemplate({
   handleConfirmAgreement,
   handleBackToPayment,
   setIsTermsAccepted,
+  isConfirming,
 }: ReviewTemplateProps): JSX.Element {
   return (
     <div className="grid grid-cols-1 gap-6 md:grid-cols-[minmax(0,1fr)_20rem]">
@@ -58,7 +60,9 @@ export default function ReviewTemplate({
         <AgreementSummary
           totalValue={selectedOffer.finalPrice}
           canContinue={isTermsAccepted}
-          continueLabel={ReviewConstants.CONFIRM}
+          continueLabel={
+            isConfirming ? ReviewConstants.IN_PROGRESS : ReviewConstants.CONFIRM
+          }
           note={selectedPaymentMethod.note}
           onContinue={handleConfirmAgreement}
           onBack={handleBackToPayment}

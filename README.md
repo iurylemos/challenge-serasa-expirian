@@ -75,6 +75,10 @@ O layout foi construído para funcionar de forma confortável tanto em telas mob
 - Feedback de erro acessível (`aria-live`)
 - Foco visível em elementos focáveis
 
+## Video de como funciona
+
+<video src="https://github.com/user-attachments/assets/54d903be-10c3-469b-9458-57f48395ce08" controls width="600"></video>
+
 ## 👤 Autor
 
 **Iury Lemos**

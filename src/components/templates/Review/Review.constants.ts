@@ -7,4 +7,5 @@ export const REVIEW_AGREEMENT_TERMS: string[] = [
 export enum ReviewConstants {
   RESUME_AGREEMENT = "Resumo do acordo",
   CONFIRM = "Confirmar acordo",
+  IN_PROGRESS = "Está confirmando",
 }
