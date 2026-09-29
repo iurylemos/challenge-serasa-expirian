@@ -1,5 +1,3 @@
-// src/components/molecules/SnackbarViewport.tsx
-
 import type { JSX } from "react";
 import type { SnackbarItem } from "@/src/interfaces/snackbar.interface";
 import Snackbar from "@/src/components/atoms/Snackbar";
